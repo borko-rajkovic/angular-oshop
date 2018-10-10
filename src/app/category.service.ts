@@ -8,6 +8,8 @@ export class CategoryService {
   constructor(private db: AngularFireDatabase) {}
 
   getCategories() {
-    return this.db.list('/categories', e => e.orderByChild('name')).valueChanges();
+    return this.db
+      .object('/categories')
+      .valueChanges();
   }
 }
