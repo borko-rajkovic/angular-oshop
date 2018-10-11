@@ -10,6 +10,9 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
+import { DataTablesModule } from 'angular-datatables';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -44,9 +47,11 @@ import { ProductService } from './product.service';
     ProductFormComponent
   ],
   imports: [
+    AngularFontAwesomeModule,
     BrowserModule,
     FormsModule,
     CustomFormsModule,
+    DataTablesModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
