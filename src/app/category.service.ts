@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class CategoryService {
   constructor(private db: AngularFireDatabase) {}
 
-  getCategories() {
+  getAll() {
     return this.db
       .object('/categories')
       .valueChanges();
