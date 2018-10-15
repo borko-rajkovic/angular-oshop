@@ -8,13 +8,28 @@ import { ShoppingCartService } from '../shopping-cart.service';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  @Input() product: Product;
-  @Input() showActions = true;
+  @Input()
+  product: Product;
+  @Input()
+  showActions = true;
+  @Input()
+  shoppingCart;
 
-  constructor(private cartService: ShoppingCartService) { }
+  constructor(private cartService: ShoppingCartService) {}
 
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
+  addToCart() {
+    this.cartService.addToCart(this.product);
   }
 
+  removeFromCart() {
+    this.cartService.removeFromCart(this.product);
+  }
+
+  getQuantity() {
+    if (!this.shoppingCart) {
+      return 0;
+    }
+    const item = this.shoppingCart.items[this.product.key];
+    return item ? item.quantity : 0;
+  }
 }
