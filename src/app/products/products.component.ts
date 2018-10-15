@@ -2,7 +2,7 @@ import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 import { ProductService } from '../product.service';
-import { Product } from '../models/products';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-products',
