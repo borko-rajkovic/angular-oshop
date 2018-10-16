@@ -5,8 +5,19 @@ export class ShoppingCart {
 
   constructor(public itemsMap) {
     Object.keys(itemsMap).forEach(productId => {
-      this.items.push(itemsMap[productId]);
+      const item = itemsMap[productId];
+      this.items.push(new ShoppingCartItem(item.product, item.quantity));
     });
+  }
+
+  get totalPrice() {
+    let sum = 0;
+
+    this.items.forEach(item => {
+      sum += item.totalPrice;
+    });
+
+    return sum;
   }
 
   get totalItemsCount() {
