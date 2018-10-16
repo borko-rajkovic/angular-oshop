@@ -4,7 +4,7 @@ import { Product } from './product';
 export class ShoppingCart {
   items: ShoppingCartItem[] = [];
 
-  constructor(public itemsMap) {
+  constructor(private itemsMap) {
     this.itemsMap = itemsMap || {};
 
     Object.keys(this.itemsMap).forEach(productId => {
