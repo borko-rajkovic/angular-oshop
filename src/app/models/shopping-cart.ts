@@ -5,9 +5,16 @@ export class ShoppingCart {
   items: ShoppingCartItem[] = [];
 
   constructor(public itemsMap) {
-    Object.keys(itemsMap).forEach(productId => {
-      const item = itemsMap[productId];
-      this.items.push(new ShoppingCartItem(item.product, item.quantity));
+    this.itemsMap = itemsMap || {};
+
+    Object.keys(this.itemsMap).forEach(productId => {
+      const item = this.itemsMap[productId];
+      this.items.push(
+        new ShoppingCartItem({
+          ...item,
+          key: productId
+        })
+      );
     });
   }
 
@@ -32,6 +39,7 @@ export class ShoppingCart {
     Object.keys(this.itemsMap).forEach(item => {
       count += this.itemsMap[item].quantity;
     });
+
     return count;
   }
 }
