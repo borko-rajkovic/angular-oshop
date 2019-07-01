@@ -13,7 +13,7 @@ import { ShoppingCart } from 'shared/models/shopping-cart';
 })
 export class ShippingFormComponent implements OnInit, OnDestroy {
   @Input() cart: ShoppingCart;
-  shipping = {};
+  shipping: any = { name: '', addressLine1: '', addressLine2: '', city: '' };
   userSubscription: Subscription;
   userId: string;
 
@@ -22,7 +22,6 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private orderService: OrderService
   ) {}
-
 
   ngOnInit() {
     this.userSubscription = this.authService.user$.subscribe(
