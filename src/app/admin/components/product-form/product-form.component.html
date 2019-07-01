@@ -80,12 +80,12 @@
           <div *ngIf="imageUrl.errors.url">Please enter a valid URL.</div>
         </div>
       </div>
-      <button class="btn btn-primary float-right">Save</button>
+      <button class="btn btn-primary">Save</button>
       <button
         *ngIf="id"
         type="button"
         (click)="delete()"
-        class="btn btn-danger"
+        class="btn btn-danger float-right"
       >
         Delete
       </button>
