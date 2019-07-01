@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
+import { combineLatest } from 'rxjs';
 
 @Injectable()
 export class OrderService {
@@ -83,5 +84,18 @@ export class OrderService {
           return res;
         })
       );
+  }
+
+  getOrderByKey(key: string) {
+    return combineLatest(
+      this.db.object('/orders').valueChanges(),
+      this.db.object('/users').valueChanges()
+    ).pipe(
+      map(a => {
+        const user = a[1][a[0][key]['userId']];
+        const order = a[0][key];
+        return { ...order, user };
+      })
+    );
   }
 }

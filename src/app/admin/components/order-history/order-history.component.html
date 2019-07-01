@@ -5,11 +5,19 @@
       <p class="float-right">{{ order.datePlaced | date }}</p>
     </h5>
     <p class="card-text">
-      You have
+      <span class="font-weight-bold">Name</span>
+      {{ order.user && order.user.name }}
+    </p>
+    <p class="card-text">
+      <span class="font-weight-bold">Email</span>
+      {{ order.user && order.user.email }}
+    </p>
+    <p class="card-text">
+      There is
       <span class="font-weight-bold">{{
         order.items && order.items.length
       }}</span>
-      items in your shopping cart.
+      items in this shopping cart.
     </p>
     <ul class="list-group list-group-flush">
       <li *ngFor="let item of order.items" class="list-group-item">
@@ -62,5 +70,5 @@
 </div>
 
 <p class="mt-4">
-  <a routerLink="/my/orders" class="btn btn-primary">My Orders</a>
+  <a routerLink="/admin/orders" class="btn btn-primary">Orders</a>
 </p>
