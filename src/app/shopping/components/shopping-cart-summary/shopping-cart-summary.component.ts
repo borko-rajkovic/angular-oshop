@@ -8,4 +8,11 @@ import { ShoppingCart } from 'shared/models/shopping-cart';
 })
 export class ShoppingCartSummaryComponent {
   @Input() cart: ShoppingCart;
+
+  getTotalPrice(cart) {
+    if (cart.totalPrice) {
+      return cart.totalPrice;
+    }
+    return cart.items.map(i => i.totalPrice).reduce((a, b) => a + b);
+  }
 }
