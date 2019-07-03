@@ -34,7 +34,9 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   private initializeTable(products: Product[]) {
     this.tableResource = new DataTableResource(products);
-    this.tableResource.query({ offest: 0 }).then(items => (this.items = items));
+    this.tableResource
+      .query({ offset: 0, limit: 10 })
+      .then(items => (this.items = items));
     this.tableResource.count().then(count => (this.itemCount = count));
   }
 
