@@ -12,7 +12,10 @@
           class="form-control"
           required
         />
-        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+        <div
+          class="alert alert-danger mt-1"
+          *ngIf="title.touched && title.invalid"
+        >
           Title is required.
         </div>
       </div>
@@ -33,7 +36,10 @@
             [min]="0"
           />
         </div>
-        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+        <div
+          class="alert alert-danger mt-1"
+          *ngIf="price.touched && price.invalid"
+        >
           <div *ngIf="price.errors.required">Price is required.</div>
           <div *ngIf="price.errors.min">Price should be 0 or higher.</div>
         </div>
@@ -54,7 +60,7 @@
           </option>
         </select>
         <div
-          class="alert alert-danger"
+          class="alert alert-danger mt-1"
           *ngIf="category.touched && category.invalid"
         >
           Category is required.
@@ -73,7 +79,7 @@
           url
         />
         <div
-          class="alert alert-danger"
+          class="alert alert-danger mt-1"
           *ngIf="imageUrl.touched && imageUrl.invalid"
         >
           <div *ngIf="imageUrl.errors.required">Image URL is required.</div>
