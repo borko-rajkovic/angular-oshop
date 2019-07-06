@@ -103,7 +103,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 
-Borko Rajkovic - [LinkedIn](https://linkedin.com/in/othneildrew) - rajkovicborko@gmail.com
+Borko Rajkovic - [LinkedIn](https://linkedin.com/in/borko-rajkovic) - rajkovicborko@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
